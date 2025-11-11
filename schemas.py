@@ -1,5 +1,5 @@
 from datetime import datetime,date
-from pydantic import BaseModel, EmailStr
+from pydantic import BaseModel, EmailStr,Field
 from typing import Optional
 
 
@@ -44,7 +44,7 @@ class UserBase(BaseModel):
     email:EmailStr
 
 class UserCreate(UserBase):
-    password:str
+    password:str=Field(...,max_length=72)
     is_admin:Optional[bool]=False
     
 class User(UserBase):
