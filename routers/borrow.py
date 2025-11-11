@@ -15,7 +15,7 @@ router = APIRouter(
 @router.post('/api/v1/borrow',response_model=schemas.BorrowRecord)
 def borrow_book(borrow_request:schemas.BorrowCreate,db:Session= Depends(get_db),current_user:schemas.User = Depends(get_current_user)):
     record = crud.borrow_book(db=db,book_id = borrow_request.book_id,user_id=current_user.id)
-    if record is  "Not_found":
+    if record == "Not_found":
         raise HTTPException(
             status_code = status.HTTP_404_NOT_FOUND,
             detail="Book is not found"

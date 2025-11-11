@@ -17,7 +17,7 @@ def register_user(user:schemas.UserCreate,db:Session=Depends(get_db)):
     if db_user:
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
-            detial="Email already registered"
+            detail="Email already registered"
         )
     return crud.create_user(db=db, user=user)
 

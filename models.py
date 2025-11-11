@@ -1,5 +1,5 @@
 from datetime import datetime, timezone
-from sqlalchemy import Column, Date, Integer, String, Boolean, ForeignKey
+from sqlalchemy import Column, Date, Integer, String, Boolean, ForeignKey,DateTime
 from sqlalchemy.orm import relationship
 
 from database import Base
@@ -44,8 +44,8 @@ class Borrow(Base):
     user_id = Column(Integer,ForeignKey("users.id",ondelete="Cascade"),nullable=False)
     book_id = Column(Integer,ForeignKey("books.id",ondelete="Cascade"),nullable=False)
     
-    date_borrowed=Column(Date,nullable=False,default=lambda: datetime.now(timezone.utc))
-    date_returned=Column(Date,nullable=True)
+    date_borrowed=Column(DateTime(timezone=True),nullable=False,default=lambda: datetime.now(timezone.utc))
+    date_returned=Column(DateTime(timezone=True),nullable=True)
 
     book = relationship("Book", back_populates="borrow_records")
     user = relationship("User", back_populates="borrow_records")
