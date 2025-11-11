@@ -77,9 +77,9 @@ Follow these instructions to get a local copy up and running for development and
     -   Open the new `.env` file and replace the placeholder `SECRET_KEY` with your own unique, random string. This is critical for security.
 
 5.  **Run the Application**
-    -   Start the development server with Uvicorn.
+    -   Start the development server with Uvicorn.( Look out for Interpreter path in config )
         ```
-        uvicorn app.main:app --reload
+        uvicorn main:app --reload
         ```
 
 6.  **Explore the API**
