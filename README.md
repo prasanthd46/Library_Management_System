@@ -71,7 +71,7 @@ Follow these instructions to get a local copy up and running for development and
     ```
 
 4.  **Configure Environment Variables**
-    -   Create a `.env` file by copying the example template. This holds your secrets and is ignored by Git.
+    -   Create a `.env` file by copying the example template. This holds your secrets and is ignored by Git.Remove the text in "(...)" beside env values. 
         -   *On Windows:* `copy .env.example .env`
         -   *On macOS/Linux:* `cp .env.example .env`
     -   Open the new `.env` file and replace the placeholder `SECRET_KEY` with your own unique, random string. This is critical for security.
